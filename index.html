@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="users">
+    <div class="user-profile">
+
+        <div class="user">
+            <img  id='image1' src="image.jpeg" width="100px">
+            <h5 id="user-name1"></h5>
+            <small><p  id="user-email1"></p></small>
+
+        </div>
+
+        <div class="user">
+            <img id='image2' src="image.jpeg" width="100px">
+            <h5 id="user-name2"></h5>
+            <small><p id="user-email2"></p></small>
+
+        </div>
+
+        <div class="user">
+            <img id='image3' src="image.jpeg" width="100px">
+            <h5 id="user-name3"></h5>
+            <small><p id="user-email3"></p></small>
+        </div>
+
+        <div class="user">
+            <img id='image4' src="image.jpeg" width="100px">
+            <h5 id="user-name4"></h5>
+            <small><p id="user-email4"></p></small>
+
+        </div>
+
+        <div class="user">
+            <img id='image5' src="image.jpeg" width="100px">
+            <h5 id="user-name5"></h5>
+            <small><p id="user-email5"></p></small>
+
+        </div>
+
+    </div>
+
+    <div class="user-detail">
+        <table border="1">
+            <tr>
+                <td style="background-color: rgb(51, 51, 51)"><b>Name</b></td>
+                <td style="background-color: rgb(51, 51, 51)"><b>Email</b></td>
+            </tr>
+
+            <tr>
+                <td id="name-1"></td>
+                <td id="email1"></td>
+            </tr>
+
+            <tr>
+                <td id="name-2"></td>
+                <td  id="email2"></td>
+            </tr>
+
+            <tr>
+                <td id="name-3"></td>
+                <td  id="email3"></td>
+            </tr>
+
+            <tr>
+                <td id="name-4"></td>
+                <td  id="email4"></td>
+            </tr>
+
+            <tr>
+                <td id="name-5"></td>
+                <td  id="email5"></td>
+            </tr>
+
+        </table>
+        <button onclick="createuser()">More Users</button>
+    </div>
+    <script>
+        function createuser() {
+            
+            fetch('https://randomuser.me/api/?results=5')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data); // Handle the data from the API
+                    
+                    // add image
+
+                    const personimage = data.results[0].picture['large'];
+                    const userimage=document.getElementById('image1')
+                    userimage.src=personimage
+
+
+                    // add name 
+                    
+                    const firstname=data.results[0].name.first;
+                    const lastname=data.results[0].name.last;
+                    const fullname=firstname+ " " + lastname
+                    const username1=document.getElementById("user-name1")
+                    const name1=document.getElementById("name-1")
+                    username1.textContent=fullname
+                    name1.textContent=fullname
+
+
+                    // add email
+
+                    const emailFromApi = data.results[0].email;
+                    console.log(emailFromApi); // Log the email from the API response
+                    
+
+                    // Update the text content of the element with id 'email'
+                    const emailElement = document.getElementById('email1');
+                    emailElement.textContent = emailFromApi;
+                    const useremail1=document.getElementById('user-email1')
+                    useremail1.textContent=emailFromApi
+
+
+                    // 2
+                    // add image
+
+                    const personimage2 = data.results[1].picture['large'];
+                    const userimage2=document.getElementById('image2')
+                    userimage2.src=personimage2
+
+                    // add name 
+                    
+                    const firstname2=data.results[1].name.first;
+                    const lastname2=data.results[1].name.last;
+                    const fullname2=firstname2+ " " + lastname2
+                    const username2=document.getElementById("user-name2")
+                    const name2=document.getElementById("name-2")
+                    username2.textContent=fullname2
+                    name2.textContent=fullname2
+
+
+                    // add email
+
+
+                    const emailFromApi2 = data.results[1].email;
+                    console.log(emailFromApi2); // Log the email from the API response
+
+                    // Update the text content of the element with id 'email'
+                    const emailElement2 = document.getElementById('email2');
+                    emailElement2.textContent = emailFromApi2;
+                    const useremail2=document.getElementById('user-email2')
+                    useremail2.textContent=emailFromApi2
+
+                    // 3
+
+                    // add image
+
+                    const personimage3 = data.results[2].picture['large'];
+                    const userimage3=document.getElementById('image3')
+                    userimage3.src=personimage3
+
+                    // add name 
+                    
+                    const firstname3=data.results[2].name.first;
+                    const lastname3=data.results[2].name.last;
+                    const fullname3=firstname3+ " " + lastname3
+                    const username3=document.getElementById("user-name3")
+                    const name3=document.getElementById("name-3")
+                    username3.textContent=fullname3
+                    name3.textContent=fullname3
+
+
+                    // add email
+
+
+                    const emailFromApi3 = data.results[2].email;
+                    console.log(emailFromApi3); // Log the email from the API response
+
+                    // Update the text content of the element with id 'email'
+                    const emailElement3 = document.getElementById('email3');
+                    emailElement3.textContent = emailFromApi3;
+                    const useremail3=document.getElementById('user-email3')
+                    useremail3.textContent=emailFromApi3
+
+                    // 4
+
+                    // add image
+
+                    const personimage4 = data.results[3].picture['large'];
+                    const userimage4=document.getElementById('image4')
+                    userimage4.src=personimage4
+
+                    // add name 
+                    
+                    const firstname4=data.results[3].name.first;
+                    const lastname4=data.results[3].name.last;
+                    const fullname4=firstname4+ " " + lastname4
+                    const username4=document.getElementById("user-name4")
+                    const name4=document.getElementById("name-4")
+                    username4.textContent=fullname4
+                    name4.textContent=fullname4
+
+
+                    // add email
+
+
+                    const emailFromApi4 = data.results[3].email;
+                    console.log(emailFromApi4); // Log the email from the API response
+
+                    // Update the text content of the element with id 'email'
+                    const emailElement4 = document.getElementById('email4');
+                    emailElement4.textContent = emailFromApi4;
+                    const useremail4=document.getElementById('user-email4')
+                    useremail4.textContent=emailFromApi4
+
+
+                    // 5
+
+                    // add image
+
+                    const personimage5 = data.results[4].picture['large'];
+                    const userimage5=document.getElementById('image5')
+                    userimage5.src=personimage5
+
+                    // add name 
+                    
+                    const firstname5=data.results[4].name.first;
+                    const lastname5=data.results[4].name.last;
+                    const fullname5=firstname5+ " " + lastname5
+                    const username5=document.getElementById("user-name5")
+                    const name5=document.getElementById("name-5")
+                    username5.textContent=fullname5
+                    name5.textContent=fullname5
+
+
+                    // add email
+
+
+                    const emailFromApi5 = data.results[4].email;
+                    console.log(emailFromApi5); // Log the email from the API response
+
+                    // Update the text content of the element with id 'email'
+                    const emailElement5 = document.getElementById('email5');
+                    emailElement5.textContent = emailFromApi5;
+                    const useremail5=document.getElementById('user-email5')
+                    useremail5.textContent=emailFromApi5
+
+
+
+
+                })
+                .catch(error => {
+                    console.error('There has been a problem with your fetch operation:', error);
+                });
+
+                   
+                
+        }
+
+       
+            
+    </script>
+
+</body>
+</html>
